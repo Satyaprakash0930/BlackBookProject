@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -7,6 +9,11 @@ app.use(express.json());
 
 const HF_API_KEY = process.env.HF_API_KEY;
 // const HF_API_KEY = "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"; // 🔑 Hugging Face API token
+
+
+app.get('/test', (req, res) => {
+  res.send("Server working ✅");
+});
 
 app.post('/api/chat', async (req, res) => {
   try {
